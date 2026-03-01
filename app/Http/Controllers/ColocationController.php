@@ -6,5 +6,23 @@ use Illuminate\Http\Request;
 
 class ColocationController extends Controller
 {
-    //
+    public function showColocation()
+    {
+
+    }
+
+    public function createColocation()
+    {
+
+    }
+
+    public function joinColocation()
+    {
+        
+    }
+
+    public function DeleteColocation()
+    {
+
+    }
 }

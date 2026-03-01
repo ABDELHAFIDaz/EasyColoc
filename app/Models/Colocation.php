@@ -19,4 +19,15 @@ class Colocation extends Model
         )->withPivot('is_owner', 'left_at', 'total_debt')
         ->withTimestamps();
     }
+
+    public function invitations()
+    {
+        return $this->hasMany(Invitation::class);
+    }
+
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
 }

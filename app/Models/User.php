@@ -22,6 +22,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'reputation',
+        'isBanned'
     ];
 
     /**
@@ -54,6 +57,15 @@ class User extends Authenticatable
             Colocation::class,
             'memberships',
         )->withPivot('is_owner', 'left_at', 'total_debt')
+        ->withTimestamps();
+    }
+
+    public function expenses()
+    {
+        return $this->belongsToMany(
+            Expense::class,
+            'payments',
+        )->withPivot('amount_to_pay', 'status')
         ->withTimestamps();
     }
 }
