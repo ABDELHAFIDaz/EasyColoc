@@ -6,5 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Colocation extends Model
 {
-    //
+    protected $fillable = [
+        'name',
+        'status'
+    ];
+
+    public function users()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'memberships',
+        )->withPivot('is_owner', 'left_at', 'total_debt')
+        ->withTimestamps();
+    }
 }

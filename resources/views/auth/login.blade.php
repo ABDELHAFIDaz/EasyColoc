@@ -120,7 +120,7 @@
 
       <div class="sep"><span>or</span></div>
 
-      <form action="{{ route('login') }}" style="display:flex;flex-direction:column;gap:18px;margin-top:4px">7
+      <form action="{{ route('login') }}" style="display:flex;flex-direction:column;gap:18px;margin-top:4px">
         @csrf
         <div>
           <label class="field-label" for="email">Email</label>

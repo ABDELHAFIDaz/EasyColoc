@@ -47,4 +47,13 @@ class User extends Authenticatable
         ];
     }
 
+
+    public function colocations()
+    {
+        return $this->belongsToMany(
+            Colocation::class,
+            'memberships',
+        )->withPivot('is_owner', 'left_at', 'total_debt')
+        ->withTimestamps();
+    }
 }
