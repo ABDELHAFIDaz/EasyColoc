@@ -51,21 +51,13 @@ class User extends Authenticatable
     }
 
 
-    public function colocations()
+    public function memberships()
     {
-        return $this->belongsToMany(
-            Colocation::class,
-            'memberships',
-        )->withPivot('is_owner', 'left_at', 'total_debt')
-        ->withTimestamps();
+        return $this->hasMany(Membership::class);
     }
 
-    public function expenses()
+    public function payments()
     {
-        return $this->belongsToMany(
-            Expense::class,
-            'payments',
-        )->withPivot('amount_to_pay', 'status')
-        ->withTimestamps();
+        return $this->hasMany(Payment::class);
     }
 }

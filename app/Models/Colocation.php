@@ -11,13 +11,9 @@ class Colocation extends Model
         'status'
     ];
 
-    public function users()
+    public function memberships()
     {
-        return $this->belongsToMany(
-            User::class,
-            'memberships',
-        )->withPivot('is_owner', 'left_at', 'total_debt')
-        ->withTimestamps();
+        return $this->hasMany(Membership::class);
     }
 
     public function invitations()

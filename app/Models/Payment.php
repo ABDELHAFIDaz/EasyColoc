@@ -2,15 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Pivot
+class Payment extends Model
 {
-    protected $table = 'payments';
     protected $fillable = [
         'user_id',
         'expense_id',
         'status',
         'amount_to_pay'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function expense()
+    {
+        return $this->belongsTo(Expense::class);
+    }
 }

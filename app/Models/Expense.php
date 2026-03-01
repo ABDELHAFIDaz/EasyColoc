@@ -11,12 +11,8 @@ class Expense extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function users()
+    public function payments()
     {
-        return $this->belongsToMany(
-            User::class,
-            'payments',
-        )->withPivot('amount_to_pay', 'status')
-        ->withTimestamps();
+        return $this->hasMany(Payment::class);
     }
 }
