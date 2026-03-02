@@ -19,6 +19,7 @@ class MembershipController extends Controller
 
     public function members()
     {
+        
         return view('member.members');
     }
 

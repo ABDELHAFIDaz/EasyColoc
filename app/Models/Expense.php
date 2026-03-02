@@ -10,8 +10,7 @@ class Expense extends Model
         'payer_id',
         'category_id',
         'name',
-        'cost',
-        'status'
+        'cost'
     ];
     
     public function categories()
