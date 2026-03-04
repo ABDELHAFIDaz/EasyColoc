@@ -12,7 +12,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
-            'role' => \App\Http\Middleware\checkRole::class
+            'role' => \App\Http\Middleware\checkRole::class,
+            'banned' => \App\Http\Middleware\checkBanned::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
